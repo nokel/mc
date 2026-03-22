@@ -1,0 +1,23 @@
+[core]
+repo_version=1
+mode=bare-user-only
+min-free-space-size=500MB
+indexed-deltas=true
+
+[remote "midnightcommander-origin"]
+url=file:///home/nokel/.flatpak-builder/cache
+xa.title=Local repo
+xa.noenumerate=true
+xa.prio=0
+gpg-verify-summary=false
+gpg-verify=false
+xa.main-ref=app/org.gnu.MidnightCommander/x86_64/master
+
+[remote "mc-origin"]
+url=file:///home/nokel/Downloads/.flatpak-builder/cache
+xa.title=Local repo
+xa.noenumerate=true
+xa.prio=0
+gpg-verify-summary=false
+gpg-verify=false
+xa.main-ref=app/org.gnu.mc/x86_64/master
