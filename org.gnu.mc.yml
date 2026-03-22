@@ -1,0 +1,45 @@
+app-id: org.gnu.mc
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: mc-wrapper.sh
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --filesystem=home
+  - --socket=ssh-auth
+  - --env=TERM=xterm-vt220
+
+modules:
+  - name: midnight-commander
+    buildsystem: autotools
+    config-opts:
+      - --with-screen=ncurses
+    sources:
+      - type: archive
+        url: https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.33.tar.xz
+        sha256: cae149d42f844e5185d8c81d7db3913a8fa214c65f852200a9d896b468af164c
+
+  - name: mc-wrapper
+    buildsystem: simple
+    build-commands:
+      - install -D -m755 mc-wrapper.sh /app/bin/mc-wrapper.sh
+    sources:
+      - type: script
+        dest-filename: mc-wrapper.sh
+        commands:
+          - export TERM=xterm-vt220
+          - exec mc -x "$@"
+
+  - name: desktop-integration
+    buildsystem: simple
+    build-commands:
+      - install -D -m644 org.gnu.mc.desktop /app/share/applications/org.gnu.mc.desktop
+      - install -D -m644 org.gnu.mc-icon.png /app/share/icons/hicolor/256x256/apps/org.gnu.mc-icon.png
+    sources:
+      - type: file
+        path: org.gnu.mc.desktop
+      - type: file
+        path: org.gnu.mc-icon.png
