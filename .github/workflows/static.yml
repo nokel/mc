@@ -37,4 +37,3 @@ jobs:
           path: '.'
       - uses: actions/deploy-pages@v4
         id: deployment
-EOF
