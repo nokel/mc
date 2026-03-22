@@ -8,7 +8,8 @@ A Flatpak package of [Midnight Commander](https://midnight-commander.org/), a vi
 2. Open Konsole
 3. Run the following commands:
 ```bash
-flatpak install --user https://github.com/nokel/mc/releases/download/v4.8.33/mc.flatpak
+wget https://github.com/nokel/mc/releases/download/v4.8.33/mc.flatpak
+flatpak install --user mc.flatpak
 ln -s ~/.local/share/flatpak/exports/bin/org.gnu.mc ~/.local/share/flatpak/exports/bin/mc
 echo 'export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
@@ -20,9 +21,12 @@ Midnight Commander will now appear in the KDE application menu and you can also 
 
 Launch from the KDE application menu, or type `mc` in a terminal.
 
-## Building from source
+## Uninstall
+```bash
+flatpak uninstall --user org.gnu.mc
+```
 
-If you want to build it yourself you will need a Linux desktop with Flatpak and flatpak-builder installed.
+## Building from source
 ```bash
 sudo apt install flatpak flatpak-builder
 flatpak install flathub org.freedesktop.Platform//24.08 org.freedesktop.Sdk//24.08
