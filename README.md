@@ -9,7 +9,7 @@ A Flatpak package of [Midnight Commander](https://midnight-commander.org/), a vi
 3. Run the following commands:
 ```bash
 wget https://github.com/nokel/mc/releases/download/v4.8.33/mc.flatpak
-flatpak install --user mc.flatpak
+flatpak install --user --bundle mc.flatpak
 ln -s ~/.local/share/flatpak/exports/bin/org.gnu.mc ~/.local/share/flatpak/exports/bin/mc
 echo 'export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
