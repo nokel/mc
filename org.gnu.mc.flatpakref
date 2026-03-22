@@ -1,0 +1,7 @@
+[Flatpak Ref]
+Title=Midnight Commander
+Name=org.gnu.mc
+Branch=master
+Url=https://nokel.github.io/mc/repo/
+IsRuntime=false
+RuntimeRepo=https://dl.flathub.org/repo/flathub.flatpakrepo
