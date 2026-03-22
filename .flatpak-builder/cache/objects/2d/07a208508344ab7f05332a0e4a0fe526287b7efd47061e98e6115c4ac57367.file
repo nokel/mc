@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Midnight Commander
+Comment=Visual file manager
+Exec=mc-wrapper.sh
+Icon=org.gnu.mc-icon.png
+Terminal=true
+Type=Application
+Categories=System;FileManager;

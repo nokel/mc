@@ -1,0 +1,20 @@
+if test -n "$MC_TMPDIR"; then
+	MC_PWD_FILE="`mktemp "${MC_TMPDIR}/mc.pwd.XXXXXX"`"
+elif test -n "$TMPDIR"; then
+	MC_PWD_FILE="`mktemp "${TMPDIR}/mc.pwd.XXXXXX"`"
+else
+	MC_PWD_FILE="`mktemp "/tmp/mc.pwd.XXXXXX"`"
+fi
+
+/app/bin/mc -P "$MC_PWD_FILE" "$@"
+
+if test -r "$MC_PWD_FILE"; then
+	MC_PWD="`cat "$MC_PWD_FILE"`"
+	if test -n "$MC_PWD" && test "$MC_PWD" != "$PWD" && test -d "$MC_PWD"; then
+		cd "$MC_PWD" || true
+	fi
+	unset MC_PWD
+fi
+
+rm -f "$MC_PWD_FILE"
+unset MC_PWD_FILE

@@ -1,0 +1,26 @@
+[Application]
+name=org.gnu.MidnightCommander
+runtime=org.freedesktop.Platform/x86_64/24.08
+sdk=org.freedesktop.Sdk/x86_64/24.08
+command=mc-wrapper.sh
+
+[Context]
+shared=ipc;
+sockets=x11;wayland;ssh-auth;
+filesystems=home;
+
+[Environment]
+TERM=xterm-vt220
+
+[Extension org.gnu.MidnightCommander.Locale]
+directory=share/runtime/locale
+autodelete=true
+locale-subset=true
+
+[Extension org.gnu.MidnightCommander.Debug]
+directory=lib/debug
+autodelete=true
+no-autodownload=true
+
+[Build]
+built-extensions=org.gnu.MidnightCommander.Locale;org.gnu.MidnightCommander.Debug;

@@ -1,0 +1,5 @@
+[Runtime]
+name=org.gnu.mc.Locale
+
+[ExtensionOf]
+ref=app/org.gnu.mc/x86_64/master

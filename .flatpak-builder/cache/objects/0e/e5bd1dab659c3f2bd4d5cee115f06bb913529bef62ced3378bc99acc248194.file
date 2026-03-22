@@ -1,0 +1,5 @@
+[Runtime]
+name=org.gnu.MidnightCommander.Debug
+
+[ExtensionOf]
+ref=app/org.gnu.MidnightCommander/x86_64/master
